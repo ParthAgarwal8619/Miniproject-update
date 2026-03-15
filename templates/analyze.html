@@ -1,15 +1,46 @@
 {% extends "base.html" %}
 
 {% block content %}
-<div class="center-card">
 
-    <h2>Customer Email Analysis</h2>
-    <p>Paste the customer email below</p>
+<div class="card">
 
-    <form method="POST" action="/dashboard">
-        <textarea name="email" required placeholder="Paste customer email here..."></textarea>
-        <button type="submit">Analyze Email</button>
-    </form>
+<h2>Email Analysis</h2>
+
+<form method="POST">
+
+<textarea
+name="email"
+placeholder="Paste customer email here..."
+required></textarea>
+
+<button type="submit" class="btn">
+
+Analyze Email
+
+</button>
+
+</form>
+
+
+{% if error %}
+
+<p class="error">{{error}}</p>
+
+{% endif %}
+
+
+{% if result %}
+
+<div class="result">
+
+<h3>Analysis Result</h3>
+
+<p>{{result}}</p>
 
 </div>
+
+{% endif %}
+
+</div>
+
 {% endblock %}

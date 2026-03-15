@@ -1,0 +1,103 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="container mt-5">
+
+<h2 class="about-title">About This System</h2>
+
+<div class="row mt-4">
+
+<div class="col-md-4">
+
+<div class="about-card">
+
+<h4>Introduction</h4>
+
+<p>
+Email-based customer support remains critical but inefficient. 
+This AI-powered system automates email classification and response generation.
+</p>
+
+</div>
+
+</div>
+
+<div class="col-md-4">
+
+<div class="about-card">
+
+<h4>Problem Statement</h4>
+
+<ul>
+<li>High email volumes</li>
+<li>Slow response times</li>
+<li>Agent overload</li>
+</ul>
+
+</div>
+
+</div>
+
+<div class="col-md-4">
+
+<div class="about-card">
+
+<h4>Our Solution</h4>
+
+<p>
+The system categorizes emails, detects sentiment and 
+generates responses using Natural Language Processing.
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+
+<style>
+
+.about-title{
+text-align:center;
+color:white;
+font-weight:bold;
+}
+
+.about-card{
+
+background:white;
+padding:30px;
+border-radius:12px;
+box-shadow:0px 10px 25px rgba(0,0,0,0.2);
+
+transition:0.3s;
+
+}
+
+.about-card:hover{
+
+transform:translateY(-8px);
+box-shadow:0px 20px 40px rgba(0,0,0,0.3);
+
+}
+
+.about-card h4{
+
+color:#4f46e5;
+font-weight:bold;
+
+}
+
+.about-card ul{
+
+padding-left:20px;
+
+}
+
+</style>
+
+{% endblock %}

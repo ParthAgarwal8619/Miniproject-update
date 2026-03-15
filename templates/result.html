@@ -1,0 +1,133 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="container mt-5">
+
+<div class="card p-4 shadow">
+
+<h2>Analysis Result</h2>
+
+<br>
+
+<div class="row text-center">
+
+<div class="col-md-4">
+
+<div class="badge bg-danger p-3 result-badge">
+{{category}}
+</div>
+
+<p>Category</p>
+
+</div>
+
+<div class="col-md-4">
+
+<div class="badge bg-success p-3 result-badge">
+{{sentiment}}
+</div>
+
+<p>Sentiment</p>
+
+</div>
+
+<div class="col-md-4">
+
+<div class="badge bg-warning p-3 result-badge">
+{{priority}}
+</div>
+
+<p>Priority</p>
+
+</div>
+
+</div>
+
+<br>
+
+<h4>AI Confidence</h4>
+
+<div class="progress">
+
+<div id="confidenceBar"
+class="progress-bar bg-primary progress-bar-striped progress-bar-animated"
+style="width:0%">
+
+0%
+
+</div>
+
+</div>
+
+<br>
+
+<h4>Auto Response</h4>
+
+<div class="card p-3 response-box">
+
+{{response}}
+
+</div>
+
+<br>
+
+<a href="/analyze" class="btn btn-primary">
+Analyze Another
+</a>
+
+<a href="/dashboard" class="btn btn-dark">
+Dashboard
+</a>
+
+</div>
+
+</div>
+
+<style>
+
+.result-badge{
+font-size:18px;
+transition:0.3s;
+}
+
+.result-badge:hover{
+transform:scale(1.05);
+}
+
+.response-box{
+background:#f8f9fa;
+border-radius:10px;
+}
+
+</style>
+
+<script>
+
+let confidence = {{confidence}}
+
+let bar = document.getElementById("confidenceBar")
+
+let width = 0
+
+let interval = setInterval(function(){
+
+if(width >= confidence){
+
+clearInterval(interval)
+
+}else{
+
+width++
+
+bar.style.width = width + "%"
+
+bar.innerHTML = width + "%"
+
+}
+
+},20)
+
+</script>
+
+{% endblock %}

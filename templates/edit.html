@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="container mt-4">
+
+<h2>Edit Email</h2>
+
+<form method="POST">
+
+<textarea name="email" class="form-control" rows="4">
+{{row.email}}
+</textarea>
+
+<br>
+
+<button class="btn btn-primary">
+Update Email
+</button>
+
+</form>
+
+</div>
+
+{% endblock %}

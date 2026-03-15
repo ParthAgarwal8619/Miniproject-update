@@ -1,26 +1,31 @@
+import os
+import joblib
+
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+
+model_path = os.path.join(BASE_DIR, "..", "models", "email_classifier.pkl")
+
+model, vectorizer = joblib.load(model_path)
 
 
-import pandas as pd
-import pickle
-from sklearn.feature_extraction.text import TfidfVectorizer
-from sklearn.naive_bayes import MultinomialNB
+def classify_email(text):
 
+    text_lower = text.lower()
 
-data = pd.read_csv("dataset/emails.csv")
+    # manual rule for query
+    if "where" in text_lower or "when" in text_lower or "status" in text_lower:
+        return "Query", 90
 
-X = data['email_text']
-y = data['category']
+    if "delay" in text_lower or "late" in text_lower or "not received" in text_lower:
+        return "Complaint", 88
 
+    if "thank" in text_lower or "great service" in text_lower:
+        return "Feedback", 92
 
-vectorizer = TfidfVectorizer()
-X_vec = vectorizer.fit_transform(X)
+    X = vectorizer.transform([text])
 
+    prediction = model.predict(X)[0]
 
-model = MultinomialNB()
-model.fit(X_vec, y)
+    confidence = max(model.predict_proba(X)[0]) * 100
 
-
-with open("models/email_classifier.pkl", "wb") as f:
-    pickle.dump((model, vectorizer), f)
-
-print("Email classification model trained & saved")
+    return prediction, round(confidence,2)

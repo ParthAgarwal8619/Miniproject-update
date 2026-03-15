@@ -1,31 +1,119 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Email Intelligence System</title>
 
-    <!-- CSS LINK -->
-    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Email Intelligence System</title>
+
+<!-- Bootstrap CSS -->
+<link rel="stylesheet"
+href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+
+<!-- Font Awesome -->
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<!-- Custom CSS -->
+<link rel="stylesheet"
+href="{{ url_for('static', filename='css/style.css') }}">
+
+<link rel="stylesheet"
+href="{{ url_for('static', filename='css/dashboard.css') }}">
+
+
+
 </head>
+
 <body>
 
-<nav class="navbar">
-    <div class="logo">Email Intelligence</div>
-    <ul>
-        <li><a href="/">Home</a></li>
-        <li><a href="/analyze">Analyze</a></li>
-        <li><a href="/dashboard">Dashboard</a></li>
-        <li><a href="/login">Login</a></li>
-    </ul>
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+
+<div class="container">
+
+<a class="navbar-brand" href="/">
+📧 Email Intelligence
+</a>
+
+<ul class="navbar-nav ms-auto">
+
+<li class="nav-item">
+<a class="nav-link" href="/">Home</a>
+</li>
+
+<li class="nav-item">
+<a class="nav-link" href="/dashboard">Dashboard</a>
+</li>
+
+<li class="nav-item">
+<a class="nav-link" href="/analyze">Analyze</a>
+</li>
+
+<li class="nav-item">
+<a class="nav-link" href="/statistics">Statistics</a>
+</li>
+
+<li class="nav-item">
+<a class="nav-link" href="/history">History</a>
+</li>
+
+<li class="nav-item">
+<a class="nav-link" href="/about">About</a>
+</li>
+
+</ul>
+
+</div>
+
 </nav>
 
-<main class="page">
-    {% block content %}{% endblock %}
-</main>
 
-<footer>
-    © 2026 Email Intelligence System | AI Powered
-</footer>
+<style>
+
+.navbar{
+
+box-shadow:0px 4px 15px rgba(0,0,0,0.4);
+
+}
+
+.nav-link{
+
+transition:0.3s;
+
+}
+
+.nav-link:hover{
+
+color:#4f46e5 !important;
+transform:scale(1.1);
+
+}
+
+</style>
+
+<!-- Page Content -->
+<div class="container-fluid mt-4">
+
+{% block content %}
+{% endblock %}
+
+</div>
+
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+<!-- Chart.js -->
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<!-- Custom JS -->
+<script src="{{ url_for('static', filename='js/dashboard.js') }}"></script>
+
+<script src="{{ url_for('static', filename='js/charts.js') }}"></script>
 
 </body>
+
 </html>

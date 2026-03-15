@@ -1,0 +1,212 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="container mt-4">
+
+<h2>System Statistics</h2>
+
+<div class="card p-4">
+
+<h4>Model Performance</h4>
+
+<div class="row text-center">
+
+<div class="col-md-3">
+
+<div class="stat-box">
+
+<h2>{{total}}</h2>
+
+<p>Total Emails</p>
+
+</div>
+
+</div>
+
+
+<div class="col-md-3">
+
+<div class="stat-box">
+
+<h2>{{complaints}}</h2>
+
+<p>Complaints</p>
+
+</div>
+
+</div>
+
+
+<div class="col-md-3">
+
+<div class="stat-box">
+
+<h2>{{queries}}</h2>
+
+<p>Queries</p>
+
+</div>
+
+</div>
+
+
+<div class="col-md-3">
+
+<div class="stat-box">
+
+<h2>{{feedback}}</h2>
+
+<p>Feedback</p>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+<br>
+
+<div class="row">
+
+<div class="col-md-6">
+
+<div class="card p-4">
+
+<h4>Email Category Distribution</h4>
+
+<canvas id="categoryChart"></canvas>
+
+</div>
+
+</div>
+
+
+<div class="col-md-6">
+
+<div class="card p-4">
+
+<h4>Sentiment Analysis</h4>
+
+<canvas id="sentimentChart"></canvas>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+
+<script>
+
+const categoryData = {
+
+complaints: {{complaints}},
+
+queries: {{queries}},
+
+feedback: {{feedback}}
+
+};
+
+
+const sentimentData = {
+
+positive: {{positive}},
+
+neutral: {{neutral}},
+
+negative: {{negative}}
+
+};
+
+
+const categoryCtx = document.getElementById('categoryChart');
+
+new Chart(categoryCtx, {
+
+type: 'pie',
+
+data: {
+
+labels: ['Complaint','Query','Feedback'],
+
+datasets: [{
+
+data: [
+
+categoryData.complaints,
+
+categoryData.queries,
+
+categoryData.feedback
+
+],
+
+backgroundColor: [
+
+'#ef4444',
+
+'#3b82f6',
+
+'#10b981'
+
+]
+
+}]
+
+}
+
+});
+
+
+const sentimentCtx = document.getElementById('sentimentChart');
+
+new Chart(sentimentCtx, {
+
+type: 'bar',
+
+data: {
+
+labels: ['Positive','Neutral','Negative'],
+
+datasets: [{
+
+label: 'Sentiment',
+
+data: [
+
+sentimentData.positive,
+
+sentimentData.neutral,
+
+sentimentData.negative
+
+],
+
+backgroundColor: [
+
+'#22c55e',
+
+'#f59e0b',
+
+'#ef4444'
+
+]
+
+}]
+
+}
+
+});
+
+</script>
+
+{% endblock %}

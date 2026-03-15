@@ -1,12 +1,12 @@
-
-
 from textblob import TextBlob
 
-def get_sentiment(text):
-    analysis = TextBlob(text)
-    if analysis.sentiment.polarity > 0:
+def analyze_sentiment(text):
+
+    score = TextBlob(text).sentiment.polarity
+
+    if score > 0:
         return "Positive"
-    elif analysis.sentiment.polarity < 0:
+    elif score < 0:
         return "Negative"
     else:
         return "Neutral"

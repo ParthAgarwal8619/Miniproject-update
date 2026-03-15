@@ -1,37 +1,98 @@
 {% extends "base.html" %}
 
 {% block content %}
-<div class="dashboard-card">
 
-    <h2>Email Analysis Result</h2>
+<div class="container mt-4">
 
-    <div class="result-row">
-        <span>Email:</span>
-        <span>{{ email }}</span>
-    </div>
+<h2 class="mb-4">Dashboard</h2>
 
-    <div class="result-row">
-        <span>Category:</span>
-        <span>{{ category }}</span>
-    </div>
+<div class="row text-center">
 
-    <div class="result-row">
-        <span>Sentiment:</span>
-        <span>{{ sentiment }}</span>
-    </div>
-
-    <div class="result-row priority">
-        <span>Priority:</span>
-        <span>{{ priority }}</span>
-    </div>
-
-    <div class="reply-box">
-        <h4>Auto Generated Reply</h4>
-        <p>{{ reply }}</p>
-    </div>
-
-    <a href="{{ url_for('analyze') }}" class="btn">
-    Analyze Another Email
-</a>
+<!-- TOTAL EMAILS -->
+<div class="col-md-3 mb-3">
+<div class="card dashboard-card bg-danger text-white p-4">
+<h2>{{total_emails}}</h2>
+<p>Total Emails</p>
 </div>
+</div>
+
+<!-- COMPLAINTS -->
+<div class="col-md-3 mb-3">
+<div class="card dashboard-card bg-warning text-dark p-4">
+<h2>{{complaints}}</h2>
+<p>Complaints</p>
+</div>
+</div>
+
+<!-- QUERIES -->
+<div class="col-md-3 mb-3">
+<div class="card dashboard-card bg-info text-white p-4">
+<h2>{{queries}}</h2>
+<p>Queries</p>
+</div>
+</div>
+
+<!-- FEEDBACK -->
+<div class="col-md-3 mb-3">
+<div class="card dashboard-card bg-success text-white p-4">
+<h2>{{feedbacks}}</h2>
+<p>Feedback</p>
+</div>
+</div>
+
+</div>
+
+
+<!-- ACTION CARDS -->
+
+<div class="row mt-4 text-center">
+
+<!-- ANALYZE -->
+<div class="col-md-4 mb-3">
+<div class="card p-4">
+
+<h4>Analyze Email</h4>
+<p>Classify email intent and sentiment</p>
+
+<a href="/analyze" class="btn btn-primary">
+Start Analysis
+</a>
+
+</div>
+</div>
+
+
+<!-- STATISTICS -->
+<div class="col-md-4 mb-3">
+<div class="card p-4">
+
+<h4>View Statistics</h4>
+<p>System performance analytics</p>
+
+<a href="/statistics" class="btn btn-success">
+View Stats
+</a>
+
+</div>
+</div>
+
+
+<!-- HISTORY -->
+<div class="col-md-4 mb-3">
+<div class="card p-4">
+
+<h4>Email History</h4>
+<p>Previously analyzed emails</p>
+
+<a href="/history" class="btn btn-warning">
+View History
+</a>
+
+</div>
+</div>
+
+</div>
+
+</div>
+
 {% endblock %}
