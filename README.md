@@ -1,38 +1,79 @@
-# Customer Service Email Intelligence System
+# 📧 Customer Service Email Intelligence System
 
-## Introduction
-Customer service teams receive thousands of emails daily. Handling them manually causes delays and agent overload.
+🚀 **Live Demo:** https://mini-project-2-78hv.onrender.com/
 
-## Problem Statement
-- High volume of customer emails
-- Slow response time
-- Manual classification
+---
 
-## Proposed Solution
-This project uses Artificial Intelligence and NLP to automatically classify customer emails, analyze sentiment, and generate draft replies.
+## 📌 Introduction
 
-## Features
-- Email intent classification
-- Sentiment analysis
-- Priority assignment
-- Automated reply generation
-- Human review system
+Customer service teams receive thousands of emails daily.  
+Handling them manually causes delays, agent overload, and inefficient response management.
 
-## System Workflow
-Email → NLP Analysis → Classification → Sentiment Detection → Auto Reply → Agent Approval
+This project builds an intelligent system to automatically analyze and classify customer emails using machine learning techniques.
 
-## Technology Stack
-- Python
-- Flask
-- Machine Learning
-- NLP
-- HTML, CSS
-- GitHub
+---
 
-## How to Run
-1. Activate virtual environment  
-2. Install requirements  
-3. Run app.py  
+## 🎯 Problem Statement
 
-## Conclusion
-This system improves efficiency, reduces workload, and enhances customer satisfaction.
+- High volume of customer emails  
+- Slow response time  
+- Manual categorization errors  
+- Increased workload on support agents  
+
+---
+
+## 🧠 Solution
+
+This system processes incoming emails and:
+
+- Classifies them into relevant categories  
+- Prioritizes urgent emails  
+- Reduces manual workload  
+- Improves response efficiency  
+
+---
+
+## 🛠️ Technologies Used
+
+- Python  
+- Machine Learning  
+- Flask  
+- HTML / CSS  
+- Deployment: Render  
+
+---
+
+## ⚙️ How to Run Locally
+
+1. Clone the repository:
+2. Navigate to the project folder:
+3. Install dependencies:
+4. Run the application:
+5. Open browser and visit:
+
+
+---
+
+## 🌐 Deployment
+
+The application is deployed on **Render**.
+
+🔗 Live Link:  
+https://mini-project-2-78hv.onrender.com/
+
+---
+
+## 🚀 Future Improvements
+
+- Add advanced NLP techniques  
+- Improve classification accuracy  
+- Add real-time dashboard analytics  
+- Integrate with email APIs  
+
+---
+
+## 👨‍💻 Author
+
+Parth Agrawal  
+B.Tech CSE (AI & ML)
+
