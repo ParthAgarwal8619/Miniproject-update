@@ -1,6 +1,7 @@
 from flask import Flask
 from routes import register_routes
 from database import init_db
+import os
 
 
 
@@ -14,4 +15,5 @@ init_db()
 register_routes(app)
 
 if __name__ == "__main__":
-    app.run(host="0.0.0.0", port=10000)
+    port = int(os.environ.get("PORT", 10000))
+    app.run(host="0.0.0.0", port=port)
