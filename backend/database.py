@@ -12,6 +12,7 @@ def init_db():
     conn = get_connection()
     cursor = conn.cursor()
 
+    # 🔹 EXISTING TABLE (UNCHANGED)
     cursor.execute("""
     CREATE TABLE IF NOT EXISTS history(
         id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -19,6 +20,17 @@ def init_db():
         category TEXT,
         sentiment TEXT,
         priority TEXT
+    )
+    """)
+
+    # 🔹 NEW TABLE (USERS SYSTEM)
+    cursor.execute("""
+    CREATE TABLE IF NOT EXISTS users(
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
+        name TEXT,
+        email TEXT UNIQUE,
+        password TEXT,
+        role TEXT DEFAULT 'user'
     )
     """)
 
