@@ -1,0 +1,69 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div class="container mt-4">
+
+<h2 class="text-center text-white mb-4">Admin Panel</h2>
+
+<div class="row text-center mb-4">
+
+    <div class="col-md-4">
+        <div class="card p-3 shadow">
+            <h5>Manage Users</h5>
+        </div>
+    </div>
+
+    <div class="col-md-4">
+        <div class="card p-3 shadow">
+            <h5>System Stats</h5>
+        </div>
+    </div>
+
+    <div class="col-md-4">
+        <div class="card p-3 shadow">
+            <h5>Control Panel</h5>
+        </div>
+    </div>
+
+</div>
+
+<div class="card shadow p-3">
+
+<h4 class="text-center">All Users</h4>
+
+<table class="table table-striped table-hover mt-3">
+
+    <thead class="table-dark">
+        <tr>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Role</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        {% for user in users %}
+        <tr>
+            <td>{{ user[1] }}</td>
+            <td>{{ user[2] }}</td>
+            <td>{{ user[3] }}</td>
+
+            <td>
+                {% if user[3] == 'admin' %}
+                    <a href="/remove-admin/{{ user[0] }}" class="btn btn-danger btn-sm">Remove Admin</a>
+                {% else %}
+                    <a href="/make-admin/{{ user[0] }}" class="btn btn-success btn-sm">Make Admin</a>
+                {% endif %}
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+
+</table>
+
+</div>
+
+</div>
+
+{% endblock %}
